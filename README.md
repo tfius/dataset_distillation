@@ -3,7 +3,8 @@ Compressing entire datasets into a small number of synthetic images that can tra
 This is implementation of [DATASET DISTILLATION](https://arxiv.org/pdf/1811.10959)
 
 ## Dataset Distillation
-### `DatasetDistillation`: The main class that implements the distillation algorithm
+### `DatasetDistillation` 
+The main class that implements the distillation algorithm
 - Supports both fixed and random initialization modes
 - Handles multiple gradient steps and epochs
 - Implements the bi-level optimization from the paper
@@ -21,23 +22,27 @@ This is implementation of [DATASET DISTILLATION](https://arxiv.org/pdf/1811.1095
 - Handles random initialization sampling for better generalization
 
 ## Image Distillation 
-#### `ImageFolderDataset`: Custom dataset class that:
+#### `ImageFolderDataset`
+Custom dataset class that:
 - Loads images from folders 1/ to 12/
 - Handles JPG images
 - Converts labels (folder 1 → label 0, folder 12 → label 11)
 - Applies appropriate transformations
  
-#### `create_data_loaders`: Function that
+#### `create_data_loaders` 
+Function that
 - Splits data into train/test sets (80/20 by default)
 - Applies data augmentation to training set
 - Returns ready-to-use DataLoaders
 
-#### `ConvNetRGB`: A CNN architecture adapted for
+#### `ConvNetRGB`
+A CNN architecture adapted for
 - RGB images (3 channels)
 - 12 classes
 - Configurable image size
 
-### `run_dataset_distillation`: Complete pipeline that
+### `run_dataset_distillation`
+Complete pipeline that
 - Loads your data
 - Runs the distillation process
 - Saves results and visualizations
@@ -81,13 +86,15 @@ run_dataset_distillation(
 - Results saving: Saves distilled images, visualizations, and performance metrics
 
 ## OHLC distilation 
-#### OHLCDataset: Handles time series data with:
+#### `OHLCDataset`
+Handles time series data with:
 - Support for multiple tokens
 - Sequence creation for time series prediction
 - Both regression (price prediction) and classification (direction prediction)
 - Data normalization per token
 
-#### OHLCDistillation: Core distillation algorithm adapted for
+#### `OHLCDistillation`
+Core distillation algorithm adapted for
 - Time series sequences instead of images
 - OHLC constraints (High ≥ Open, Close, Low)
 - Multiple tokens with different patterns
