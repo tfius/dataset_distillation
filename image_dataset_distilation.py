@@ -288,7 +288,7 @@ def run_dataset_distillation(
     
     # Evaluate distilled data
     print("\nEvaluating distilled data...")
-    from dataset_distillation import evaluate_distilled_data
+    from dataset_distillation_impl import evaluate_distilled_data
     
     mean_acc, std_acc = evaluate_distilled_data(
         distilled_images=distilled_images,
